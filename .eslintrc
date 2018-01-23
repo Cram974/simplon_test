@@ -1,0 +1,21 @@
+{
+    "extends": [
+        "@meteorjs/eslint-config-meteor",
+        "eslint-config-prettier",
+        "eslint-config-prettier/react"
+    ],
+    "plugins": [
+        "meteor",
+        "prettier",
+        "react"
+    ],
+    "rules": {
+        "prettier/prettier": [
+            "error",
+            {
+                "singleQuote": true,
+                "bracketSpacing": false
+            }
+        ]
+    }
+}
