@@ -1,10 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {withStyles} from 'material-ui/styles';
-import Typography from 'material-ui/Typography';
-import Button from 'material-ui/Button';
+import {compose, withState, withHandlers} from 'recompose';
 
-import AddIcon from 'material-ui-icons/Add';
+import {withStyles} from 'material-ui/styles';
+import Button from 'material-ui/Button';
+import AddIcon from 'material-ui-icons/PersonAdd';
+import Typography from 'material-ui/Typography';
+import AppBar from 'material-ui/AppBar';
+import Toolbar from 'material-ui/Toolbar';
+import Tooltip from 'material-ui/Tooltip';
+
+import CreateModal from './CreateModal';
 
 const styles = theme => ({
   fab: {
@@ -15,17 +21,49 @@ const styles = theme => ({
 });
 
 const Users = props => {
-  const {classes} = props;
-  return [
-    <Typography noWrap>Hello world</Typography>,
-    <Button fab className={classes.fab} color="primary">
-      <AddIcon />
-    </Button>
-  ];
+  const {classes, open, openModal, closeModal} = props;
+  return (
+    <div className="layout-fill layout-column">
+      <CreateModal open={open} onClose={closeModal} />
+      <AppBar
+        className="list-head"
+        position="static"
+        color="inherit"
+        elevation={0}
+      >
+        <Toolbar>
+          <Typography type="subheading" color="inherit">
+            Utilisateurs
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Tooltip title="Ajouter un utilisateur" placement="left">
+        <Button fab className={classes.fab} color="primary" onClick={openModal}>
+          <AddIcon />
+        </Button>
+      </Tooltip>
+    </div>
+  );
 };
 
 Users.propTypes = {
+  open: PropTypes.bool,
+  openModal: PropTypes.func,
+  closeModal: PropTypes.func,
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Users);
+Users.defaultProps = {
+  open: false,
+  openModal: null,
+  closeModal: null
+};
+
+export default compose(
+  withStyles(styles),
+  withState('open', 'setOpen', false),
+  withHandlers({
+    openModal: ({setOpen}) => () => setOpen(true),
+    closeModal: ({setOpen}) => () => setOpen(false)
+  })
+)(Users);

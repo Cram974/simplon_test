@@ -13,17 +13,14 @@ import MenuIcon from 'material-ui-icons/Menu';
 import ClsNames from 'classnames';
 import {compose, withState, withHandlers} from 'recompose';
 
+import '../../styles/core.scss';
 import Users from '../Users';
 
 const drawerWidth = 240;
 
 const styles = theme => ({
   appBar: {
-    position: 'absolute',
-    marginLeft: drawerWidth,
-    [theme.breakpoints.up('md')]: {
-      width: `calc(100% - ${drawerWidth}px)`
-    }
+    position: 'initial'
   },
   navIconHide: {
     [theme.breakpoints.up('md')]: {
@@ -40,15 +37,7 @@ const styles = theme => ({
     }
   },
   content: {
-    backgroundColor: theme.palette.background.default,
-    width: '100%',
-    padding: theme.spacing.unit * 3,
-    height: 'calc(100% - 56px)',
-    marginTop: 56,
-    [theme.breakpoints.up('sm')]: {
-      height: 'calc(100% - 64px)',
-      marginTop: 64
-    }
+    backgroundColor: theme.palette.background.default
   },
   menu: {
     height: '100%'
@@ -72,21 +61,6 @@ const App = props => {
 
   return (
     <div className={ClsNames('flex', 'layout-row')}>
-      <AppBar className={classes.appBar}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={toggleMobileDrawer}
-            className={classes.navIconHide}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography type="title" color="inherit" noWrap>
-            Ordinator
-          </Typography>
-        </Toolbar>
-      </AppBar>
       <Hidden mdUp>
         <Drawer
           type="temporary"
@@ -115,8 +89,25 @@ const App = props => {
           {drawer}
         </Drawer>
       </Hidden>
-      <main className={classes.content}>
-        <Users />
+      <main className={ClsNames(classes.content, 'layout-column', 'flex')}>
+        <AppBar className={classes.appBar}>
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={toggleMobileDrawer}
+              className={classes.navIconHide}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography type="title" color="inherit" noWrap>
+              Ordinator
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <div className="flex md-content">
+          <Users />
+        </div>
       </main>
     </div>
   );
