@@ -11,6 +11,7 @@ import Toolbar from 'material-ui/Toolbar';
 import Tooltip from 'material-ui/Tooltip';
 
 import CreateModal from './CreateModal';
+import List from './List';
 
 const styles = theme => ({
   fab: {
@@ -23,13 +24,13 @@ const styles = theme => ({
 const Users = props => {
   const {classes, open, openModal, closeModal} = props;
   return (
-    <div className="layout-fill layout-column">
+    <div className="page layout-fill layout-column">
       <CreateModal open={open} onClose={closeModal} />
       <AppBar
         className="list-head"
         position="static"
         color="inherit"
-        elevation={0}
+        elevation={4}
       >
         <Toolbar>
           <Typography type="subheading" color="inherit">
@@ -37,6 +38,7 @@ const Users = props => {
           </Typography>
         </Toolbar>
       </AppBar>
+      <List className="flex" />
       <Tooltip title="Ajouter un utilisateur" placement="left">
         <Button fab className={classes.fab} color="primary" onClick={openModal}>
           <AddIcon />
