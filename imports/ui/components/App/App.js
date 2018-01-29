@@ -16,6 +16,7 @@ import {Route, Link} from 'react-router-dom';
 
 import '../../styles/core.scss';
 import Users from '../Users';
+import Computers from '../Computers';
 
 const drawerWidth = 240;
 
@@ -55,6 +56,9 @@ const App = props => {
       <List className={classes.menu}>
         <ListItem component={Link} to="/users" button>
           <ListItemText primary="Utilisateurs" />
+        </ListItem>
+        <ListItem component={Link} to="/computers" button>
+          <ListItemText primary="Ordinateurs" />
         </ListItem>
       </List>
     </div>
@@ -108,6 +112,7 @@ const App = props => {
         </AppBar>
         <div className="flex md-content">
           <Route path="/users" component={Users} />
+          <Route path="/computers" component={Computers} />
         </div>
       </main>
     </div>

@@ -2,6 +2,7 @@ import {Meteor} from 'meteor/meteor';
 import SimpleSchema from 'simpl-schema';
 
 import Users from '../imports/api/users';
+import Computers from '../imports/api/computers';
 
 SimpleSchema.defineValidationErrorTransform(error => {
   const ddpError = new Meteor.Error(error.message);
