@@ -9,12 +9,15 @@
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "classnames": "^2.2.5",
+    "formik": "^0.10.5",
+    "lodash.find": "^4.6.0",
     "material-ui": "^1.0.0-beta.30",
     "material-ui-icons": "^1.0.0-beta.17",
     "meteor-node-stubs": "^0.3.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "recompose": "^0.26.0"
+    "recompose": "^0.26.0",
+    "simpl-schema": "^1.4.1"
   },
   "devDependencies": {
     "@meteorjs/eslint-config-meteor": "^1.0.5",
