@@ -12,6 +12,7 @@ import Divider from 'material-ui/Divider';
 import MenuIcon from 'material-ui-icons/Menu';
 import ClsNames from 'classnames';
 import {compose, withState, withHandlers} from 'recompose';
+import {Route, Link} from 'react-router-dom';
 
 import '../../styles/core.scss';
 import Users from '../Users';
@@ -52,7 +53,7 @@ const App = props => {
       <div className={classes.drawerHeader} />
       <Divider />
       <List className={classes.menu}>
-        <ListItem button>
+        <ListItem component={Link} to="/users" button>
           <ListItemText primary="Utilisateurs" />
         </ListItem>
       </List>
@@ -106,7 +107,7 @@ const App = props => {
           </Toolbar>
         </AppBar>
         <div className="flex md-content">
-          <Users />
+          <Route path="/users" component={Users} />
         </div>
       </main>
     </div>
