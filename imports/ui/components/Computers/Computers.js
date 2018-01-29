@@ -11,6 +11,7 @@ import Toolbar from 'material-ui/Toolbar';
 import Tooltip from 'material-ui/Tooltip';
 
 import CreateModal from './CreateModal';
+import List from './List';
 
 const styles = theme => ({
   fab: {
@@ -37,6 +38,7 @@ const Users = props => {
           </Typography>
         </Toolbar>
       </AppBar>
+      <List className="flex" />
       <Tooltip title="Ajouter un ordinateur" placement="left">
         <Button fab className={classes.fab} color="primary" onClick={openModal}>
           <AddIcon />
