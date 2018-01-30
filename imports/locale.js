@@ -1,4 +1,5 @@
 import SimpleSchema from 'simpl-schema';
+import 'moment/locale/fr';
 
 import find from 'lodash.find';
 
@@ -41,6 +42,13 @@ const defaultMessages = {
       noDecimal: '{{{label}}} must be an integer',
       notAllowed: '{{{value}}} is not an allowed value',
       expectedType: '{{{label}}} must be of type {{dataType}}',
+      dateFormat: 'Ce champ doit être une date au format "DD/MM/YYYY".',
+      dateInvalid: 'Ce champ doit être une date valide.',
+      timeFormat: 'Ce champ doit être un horaire au format "HH:mm".',
+      timeInvalid: 'Ce champ doit être un horaire valide.',
+      timeOutOfBusiness: "Ce champ doit correspondre aux horaires d'ouverture.",
+      timeOutOfBound: "L'heure de début doit être inférieure à l'heure de fin.",
+      timeTooOld: "L'horaire ne doit être passé",
       regEx({regExp}) {
         // See if there's one where exp matches this expression
         let msgObj;

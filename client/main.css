@@ -39,3 +39,15 @@ body {
 .list-head {
     border-bottom: 1px solid #eee !important;
 }
+
+#planning {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.margin-1 {
+    margin: 1rem;
+}
+
+.full-width {
+    width: 100%;
+}

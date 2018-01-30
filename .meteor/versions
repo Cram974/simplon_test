@@ -49,6 +49,7 @@ mongo-dev-server@1.1.0
 mongo-id@1.0.6
 npm-mongo@2.2.33
 ordered-dict@1.0.9
+perak:joins@1.1.9
 promise@0.10.1
 random@1.0.10
 react-meteor-data@0.2.15

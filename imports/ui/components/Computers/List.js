@@ -15,6 +15,10 @@ import Computers from '../../../api/computers';
 
 const applyClick = (_id, onClick) => () => onClick(_id);
 
+export const withComputers = withTracker(() => ({
+  computers: Computers.find({}).fetch()
+}));
+
 const List = props => {
   const {className, computers, onDelete, onClick} = props;
 
@@ -64,6 +68,4 @@ List.defaultProps = {
   onClick: null,
   onDelete: null
 };
-export default withTracker(() => ({
-  computers: Computers.find({}).fetch()
-}))(List);
+export default withComputers(List);

@@ -15,6 +15,10 @@ import Users from '../../../api/users';
 
 const applyClick = (_id, onClick) => () => onClick(_id);
 
+export const withUsers = withTracker(() => ({
+  users: Users.find({}).fetch()
+}));
+
 const List = props => {
   const {className, users, onDelete, onClick} = props;
 
@@ -68,6 +72,4 @@ List.defaultProps = {
   onClick: null,
   onDelete: null
 };
-export default withTracker(() => ({
-  users: Users.find({}).fetch()
-}))(List);
+export default withUsers(List);
